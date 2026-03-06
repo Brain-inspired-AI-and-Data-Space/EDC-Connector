@@ -148,7 +148,7 @@ docker compose -f advanced/advanced-01-open-telemetry/docker-compose.yaml up -d 
 curl -H "X-Api-Key: password"   -d @transfer/transfer-01-negotiation/resources/create-asset.json   -H 'content-type: application/json'   http://localhost:19193/management/v3/assets   -s | jq
 ```
 
-![image-20260304194329015](E:\edc-connector\fig\image-20260304194329015.png)
+![image-20260304194329015](fig\image-20260304194329015.png)
 
 ### 7.2 Provider：创建 Policy
 
@@ -156,7 +156,7 @@ curl -H "X-Api-Key: password"   -d @transfer/transfer-01-negotiation/resources/c
 curl -H "X-Api-Key: password"   -d @transfer/transfer-01-negotiation/resources/create-policy.json   -H 'content-type: application/json'   http://localhost:19193/management/v3/policydefinitions   -s | jq
 ```
 
-![image-20260304194644793](E:\edc-connector\fig\image-20260304194644793.png)
+![image-20260304194644793](fig\image-20260304194644793.png)
 
 ### 7.3 Provider：创建 Contract Definition
 
@@ -164,7 +164,7 @@ curl -H "X-Api-Key: password"   -d @transfer/transfer-01-negotiation/resources/c
 curl -H "X-Api-Key: password"   -d @transfer/transfer-01-negotiation/resources/create-contract-definition.json   -H 'content-type: application/json'   http://localhost:19193/management/v3/contractdefinitions   -s | jq
 ```
 
-![image-20260304194747405](E:\edc-connector\fig\image-20260304194747405.png)
+![image-20260304194747405](fig\image-20260304194747405.png)
 
 ------
 
@@ -174,9 +174,9 @@ curl -H "X-Api-Key: password"   -d @transfer/transfer-01-negotiation/resources/c
 curl -H "X-Api-Key: password"   -H "Content-Type: application/json"   -d @advanced/advanced-01-open-telemetry/resources/get-dataset.json   -X POST "http://localhost:29193/management/v3/catalog/dataset/request"   -s | jq
 ```
 
-![image-20260304211912360](E:\edc-connector\fig\image-20260304211912360.png)
+![image-20260304211912360](fig\image-20260304211912360.png)
 
-![image-20260304211931896](E:\edc-connector\fig\image-20260304211931896.png)
+![image-20260304211931896](fig\image-20260304211931896.png)
 
 从输出中复制：
 
@@ -197,14 +197,14 @@ nano advanced/advanced-01-open-telemetry/resources/negotiate-contract.json
 
 把文件里对应的 offer id 字段替换为第 8 步获得的 `odrl:hasPolicy/@id`。
 
-![image-20260304212417582](E:\edc-connector\fig\image-20260304212417582.png)
+![image-20260304212417582](fig\image-20260304212417582.png)
 
 ### 9.2 发起协商
 ```bash
 curl -H "X-Api-Key: password"   -H "Content-Type: application/json"   -d @advanced/advanced-01-open-telemetry/resources/negotiate-contract.json   -X POST "http://localhost:29193/management/v3/contractnegotiations"   -s | jq
 ```
 
-![image-20260305162511474](E:\edc-connector\fig\image-20260305162511474.png)
+![image-20260305162511474](fig\image-20260305162511474.png)
 
 记录返回的：
 
@@ -222,7 +222,7 @@ curl -H 'X-Api-Key: password' \
 
 ```
 
-![image-20260305162616983](E:\edc-connector\fig\image-20260305162616983.png)
+![image-20260305162616983](fig\image-20260305162616983.png)
 
 从返回里找到 **contract agreement id**（字段名可能略有差异，但会出现 agreement 的 id）。
 
@@ -242,7 +242,7 @@ nano advanced/advanced-01-open-telemetry/resources/start-transfer.json
 
 把其中的 `contractAgreementId`（或类似字段）改为第 9 步得到的 agreement id。
 
-![image-20260305164319510](E:\edc-connector\fig\image-20260305164319510.png)
+![image-20260305164319510](fig\image-20260305164319510.png)
 
 ### 10.2 发起 Transfer
 ```bash
@@ -251,7 +251,7 @@ curl -H "X-Api-Key: password"   -H "Content-Type: application/json"   -d @advanc
 
 返回 transfer process id 且状态推进，即表示跑通。
 
-![image-20260305164458389](E:\edc-connector\fig\image-20260305164458389.png)
+![image-20260305164458389](fig\image-20260305164458389.png)
 
 ---
 
@@ -259,7 +259,7 @@ curl -H "X-Api-Key: password"   -H "Content-Type: application/json"   -d @advanc
 
 - Jaeger UI（链路追踪）：`http://localhost:16686`
 
-![image-20260305165107146](E:\edc-connector\fig\image-20260305165107146.png)
+![image-20260305165107146](fig\image-20260305165107146.png)
 
 - Prometheus（指标）：`http://localhost:9090`
 
