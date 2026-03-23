@@ -112,7 +112,7 @@ http://localhost:11000
 
 使用最新的 Connector 前端，无需像以前那样先创建 `<data_repository>` `Asset`，再创建 `<data_repository> `Policy，最后再`Data Offer`创建连接两者的 `<data_repository>`，而是可以使用一种全新的流程一次性完成所有New Data Offer操作。该流程首先定义资产背后的数据源，然后填写资产详细信息，例如资产名称和描述等元数据。最后，您可以选择资产在数据空间中的发布方式。填写完所有信息并Publish`点击按钮后，系统将创建一个数据发布请求，并根据指定的策略将资产发布到数据空间。根据连接的数据空间和 Connector 的版本，字段可能会有所不同，有时可能需要填写其他字段，或者会显示其他选项供您选择。
 
-![](operationFig\8.png)
+![](operationFig/8.png)
 
 可以通过publishing条目选择policy的限制条件
 
@@ -126,11 +126,11 @@ http://localhost:11000
 
 使用 Eclipse 数据空间组件连接器 (EDC 连接器) 提供数据的第一步是创建资产。首先单击选项卡，**Assets**然后单击**New Asset**右上角的按钮。
 
-![](operationFig\1.png)
+![](operationFig/1.png)
 
 您将被引导至`Create New Asset`流程对话框，您可以在其中定义资产本身的所有相关数据以及数据源的其他必要数据（如果数据及其数据源已存在）。为此，您可以选择两种报价类型，具体取决于数据源是否已存在，或者是否仅在请求时才执行。
 
-![](operationFig\2.png)
+![](operationFig/2.png)
 
 首先，必须确定新数据方案的数据源是现有的还是需要请求才能获取。根据您的选择，后续对话框中将显示不同的字段。对于现有的数据源，必须输入相关数据，包括数据源类型、传输启动时使用的方法、URL 以及与数据源相关的其他必要机制。
 
@@ -146,13 +146,13 @@ http://localhost:11000
 
 随后输入asset的总体信息，点击create后可以看到已发布的资产.
 
-![](operationFig\3.png)
+![](operationFig/3.png)
 
 
 
 如果 UI 不支持您所需的数据地址类型，您可以提供自定义数据地址配置 JSON。
 
-![](operationFig\4.png)
+![](operationFig/4.png)
 
 Example:
 
@@ -185,7 +185,7 @@ Asset 表示要对外共享的数据资源。
 
 政策之间也可以相互关联。换句话说，根据选择的不同，可能需要同时满足多项政策，以及相互独立地并行执行不同的政策.
 
-![](operationFig\5.png)
+![](operationFig/5.png)
 
 **说明**
 
@@ -196,7 +196,7 @@ Policy 用于定义数据访问和使用规则。
 
 创建成功后，该 Policy 会出现在 Policy 列表中。
 
-![](operationFig\6.png)
+![](operationFig/6.png)
 
 ---
 
@@ -204,7 +204,7 @@ Policy 用于定义数据访问和使用规则。
 
 要让您的数据对其他数据空间参与者可用，您必须定义一个`Data Offer`。`Data Offer`将策略链接到您的资产，然后在您的目录中提供这些资产，以便其他参与者可以查询这些资产，并根据设置的策略，在其目录浏览器中查看这些资产并启动合同谈判。
 
-![](operationFig\7.png)
+![](operationFig/7.png)
 
 **填写内容**
 
@@ -239,27 +239,27 @@ http://localhost:22000
 
 找到要探索的连接器的端点后，点击选项卡`Catalog Browser`，然后在搜索栏中输入 URL `Connector Endpoint`。您的连接器将自动显示其他连接器中所有可用的产品/服务，前提是您的连接器有权查看这些产品/服务。此评估会`Access Policy`在您请求目录时，由请求的连接器进行。
 
-![](operationFig\9.png)
+![](operationFig/9.png)
 
 **预期结果**
 
 如果 Access Policy 配置允许，则可以看到 Provider 刚才发布的 Data Offer。
 
-![](operationFig\10.png)
+![](operationFig/10.png)
 
 一旦您确定了感兴趣的资产，您可以单击其所在行，将显示如下所示的详细信息对话框。
 
-![](operationFig\11.png)
+![](operationFig/11.png)
 
 如果某个资产有多个不同的数据报价，它们将显示在选项卡下的详细信息视图中`Contract Offers`。
 
 点击`Negotiate`即可开始协商所需数据套餐的合同。
 
-![](operationFig\12.png)
+![](operationFig/12.png)
 
 勾选复选框后，点击按钮`Confirm`，已正式启动合同谈判流程。
 
-![](operationFig\13.png)
+![](operationFig/13.png)
 
 ---
 
@@ -267,15 +267,15 @@ http://localhost:22000
 
 要将数据传输到所需的数据接收器，请导航至该`Contracts`页面。此页面显示您的所有合同协议，包括数据消费合同和数据提供合同。
 
-![](operationFig\14.png)
+![](operationFig/14.png)
 
 
 
-![](operationFig\15.png)
+![](operationFig/15.png)
 
 点击`Transfer`定义数据接收器属性。
 
-![](operationFig\16.png)
+![](operationFig/16.png)
 
 支持两种数据接收器类型：
 
@@ -303,13 +303,13 @@ http://localhost:22000
 
 点击**Initiate transfer** 开始传输数据
 
-![](operationFig\17.png)
+![](operationFig/17.png)
 
 ## 6.4 合同终止
 
 服务提供商和消费者均可选择终止现有合同。要发起终止，只需在“合同”区域点击现有合同（无论其是服务提供商还是消费者），然后在“合同详情”选项卡的左下角点击红色按钮`Terminate`即可
 
-![](operationFig\18.png)
+![](operationFig/18.png)
 
 点击按钮后`Terminate`，会弹出一个新对话框，您必须在其中`Detailed Reason`指定终止原因。此外，您还必须勾选一个复选框，以确认您了解终止合同的后果`I understand the consequences of terminating a contract`。此时，合同尚未终止；只有当您填写完所有必填字段并`Terminate`点击此对话框右下角的按钮后，终止流程才会正式启动。
 
